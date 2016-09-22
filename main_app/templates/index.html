@@ -1,0 +1,38 @@
+{% load staticfiles %}
+
+<!Doctype html>
+<html>
+
+	<head>
+		<link rel = "stylesheet" href = "{% static 'bootstrap.min.css' %}">
+		<link rel = "stylesheet" type = "text/css" href = "{% static 'style.css' %}">
+		<title>Treasure Gram </title>
+	</head>
+
+	<body>
+		<nav class = 'navbar navbar-default navbar-static-top text-center'>
+			<a href = "/">
+				<img src = "{% static 'images/logo.png'%}" alt ="Treasure gram">
+			</a>
+		</nav>
+		<main class = "container container--mw700">
+
+			<div class = "row">
+				{% for treasure in treasures %}	
+					<div class = "col-md-4">
+						<div class = "treasure panel panel-default">
+							<div class = "panel-heading">
+								<h2 class = "panel-title"> {{treasure.name}}</h2>
+							</div>
+							<div class = "treasure-image ">
+								<center><img src = "{{ treasure.img_url }}" height="100"></center>
+							</div>
+						</div>
+					</div>
+					
+				{% endfor %}
+			</div>
+
+		</main>
+	</body>
+</html>
